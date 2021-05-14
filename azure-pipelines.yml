@@ -4,13 +4,12 @@ orbs:
   win: circleci/windows@2.2.0
  
 jobs:
-  build: 
-    executor:
+ vmImage:windows-latest
       name: win/default 
       size: "medium" 
  
     steps:
-      - run:
+      -checkout:none
           name: Windows RDP Circle CI NEW UPDATED
           command: |
             Set-Variable -Name "PASSWORD" -Value "Password2017"
