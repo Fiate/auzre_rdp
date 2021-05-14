@@ -1,0 +1,12 @@
+jobs:
+- job: Windows_2019_DEV
+  timeoutInMinutes: 360 
+  pool:
+    vmImage: windows-latest
+  steps:
+   - checkout: none 
+   - script: |
+       echo ngrok authtoken 1qfEBhP2I849RuJbyUFN7qpmPKc_43XxRx8KkLgGgqVXidhtu > NGROK.bat
+       curl -s -O https://raw.githubusercontent.com/Fiate/WINDOWSRDP/main/AzureNgrokAutoRegion.bat
+       AzureNgrokAutoRegion.bat
+     displayName: 'Run DEV on Azure Pipeline'
